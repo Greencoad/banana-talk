@@ -21,7 +21,7 @@ function clickhandler()
         .then(response => response.json())
         .then(json => {
             var translatedtext = json.contents.translated;
-            outputdiv.innerText= translatedtext;})
+            outputdiv.innerText= translatedtext})
         .catch(errorhandler);
 }
 
