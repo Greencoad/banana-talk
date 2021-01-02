@@ -1,28 +1,27 @@
-var btntranslate = document.querySelector("#btn-translate");
-var txtinput = document.querySelector("#txt-input");
-var outputdiv = document.querySelector("output")
+var btnTranslate = document.querySelector("#btn-translate");
+var txtInput = document.querySelector("#txt-input");
+var outputDiv = document.querySelector("output")
 
-var serverurl="https://api.funtranslations.com/translate/minion.json"
+ var serverURL = "https://api.funtranslations.com/translate/minion.json"
 
-function gettranslationurl(input){
-    return serverurl+ "?" + "text=" +input
+function getTranslationURL(txtInput) {
+    return serverURL + "?" + "text=" + txtInput
 }
 
-function errorhandler(error)
-{
-    alert("Something is wrong with the sever..! please try after sometime.");
-}
-
-
-function clickhandler()
-{
-    var inputtext= txtinput.value;
-    fetch(gettranslationurl(inputtext))
+function clickhandler() {
+    var inputText = txtInput.value;
+    fetch(getTranslationURL(inputText))
         .then(response => response.json())
         .then(json => {
-            var translatedtext = json.contents.translated;
-            outputdiv.innerText= translatedtext;})
-        .catch(errorhandler);
+            var translatedText = json.contents.translated;
+            outputDiv.innerText = translatedText;
+        })
+        .catch(errorHandler);
 }
 
-btntranslate.addEventListener("click",clickhandler);
+btnTranslate.addEventListener("click", clickhandler);
+
+function errorHandler(error) {
+    console.log("error occured",error);
+    alert("Something is wrong with the sever..! please try after sometime.");
+}
