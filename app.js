@@ -1,4 +1,4 @@
-var btnTranslate = document.querySelector("#btn-translate");
+var btnTranslate = document.querySelector("btn-translate");
 var txtInput = document.querySelector("#txt-input");
 var outputDiv = document.querySelector("#output")
 
@@ -19,7 +19,7 @@ function clickhandler(inputText) {
         .catch(errorHandler);
 }
 
-btnTranslate.addEventListener("click",clickhandler);
+btnTranslate.addEventListener("click",clickhandler());
 
 function errorHandler(error) {
     console.log("error occured",error);
